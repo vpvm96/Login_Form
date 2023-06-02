@@ -4,7 +4,7 @@ export function LoginValidation(values) {
   const email_pattern = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
   const password_pattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
-  if (!values.email) {
+  if (values.email === "") {
     error.email = "Email is empty";
   } else if (!email_pattern.test(values.email)) {
     error.email = "Email is not match";
@@ -12,7 +12,7 @@ export function LoginValidation(values) {
     error.email = "";
   }
 
-  if (!values.password) {
+  if (values.password === "") {
     error.password = "Password is empty";
   } else if (!password_pattern.test(values.password)) {
     error.password = "Password not match";
@@ -29,13 +29,13 @@ export function SingupValidation(values) {
   const email_pattern = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
   const password_pattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
-  if (!values.name) {
+  if (values.name === "") {
     error.name = "Name is empty";
   } else {
     error.name = "";
   }
 
-  if (!values.email) {
+  if (values.email === "") {
     error.email = "Email is empty";
   } else if (!email_pattern.test(values.email)) {
     error.email = "Email is not match";
@@ -43,7 +43,7 @@ export function SingupValidation(values) {
     error.email = "";
   }
 
-  if (!values.password) {
+  if (values.password === "") {
     error.password = "Password is empty";
   } else if (!password_pattern.test(values.password)) {
     error.password = "Password not match";
