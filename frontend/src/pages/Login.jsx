@@ -13,7 +13,7 @@ export default function Login() {
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
-    setValue((prev) => ({ ...prev, [e.target.name]: [e.target.value] }));
+    setValue((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = (e) => {
@@ -23,7 +23,7 @@ export default function Login() {
       axios
         .post("http://localhost:8081/login", value)
         .then((res) => {
-          if (res.data === "Success") {
+          if (res.data.Status === "Success") {
             navigate("/home");
           } else {
             alert("로그인에 실패했습니다.");

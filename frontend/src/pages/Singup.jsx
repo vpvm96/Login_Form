@@ -14,7 +14,7 @@ export default function Singup() {
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
-    setValue((prev) => ({ ...prev, [e.target.name]: [e.target.value] }));
+    setValue((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = (e) => {
@@ -25,7 +25,7 @@ export default function Singup() {
       axios
         .post("http://localhost:8081/signup", value)
         .then((res) => {
-          if (res.data.success) {
+          if (res.data.Status === "Success") {
             navigate("/");
           } else {
             alert("회원가입이 실패했습니다.");
